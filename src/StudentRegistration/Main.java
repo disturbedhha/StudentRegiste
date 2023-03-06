@@ -15,7 +15,6 @@ public class Main {
         String surname;
         String identification;
         double grade;
-        int times = 0;
         int i = 0;
         int option = 0;
 
@@ -24,8 +23,10 @@ public class Main {
         register[0] = new Student();
         Scanner kb = new Scanner(System.in);
 
-        //Usar un ciclo do while, para agragar mas o menos estudiantes
-        //Agregar mas materias y ...
+       // register[0].getNotes();
+
+        //Agregar mas materias y ...array grade que imprime multiples veces en un method
+        //Crea n objetos Student
 
         do {
             register[i] = new Student();                                    //Crea un nuevo objeto estudiante
@@ -39,28 +40,25 @@ public class Main {
             System.out.println("Ingresa identificacion de estudiante ");
             identification = kb.nextLine();
 
-            System.out.println("Ingresa nota de estudiante ");
-            grade = kb.nextFloat();
+            register[i].setNotes();
 
-            register[i].setRegistration(name, surname, identification, grade);
-
-            kb.nextLine();
+            register[i].setRegistration(name, surname, identification);
 
             //Pregunta para repetir funcion
-            System.out.println("Desea agregar a otro estudiante: ");
+            System.out.println("Desea agregar a otro estudiante: " + "\n1.Si \n2.No");
             option = kb.nextInt();
-
-            i++;
-            times++;
+            i++;                                                            //N veces que se crea un estudiante
+            kb.nextLine();
 
         }while (option == 1);
-
+        System.out.println("Termina programa");
         //Imprime los registros
-        for(int j = 0; j < times; j++)
+        for(int j = 0; j < i; j++)
         {
-            register[j].getRegistration();
+            //register[j].getRegistration();
+            register[j].getNotes();
         }
 
-
+        System.out.println("Termina programa");
     }
 }
